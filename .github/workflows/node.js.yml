@@ -26,6 +26,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm i
       - run: npm run build --if-present
+      - name: Install rsync 📚
+        run: |
+          apt-get update && apt-get install -y rsync
 
       - name: Publish to Github Pages
         if: github.ref == 'refs/heads/master'
