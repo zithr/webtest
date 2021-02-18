@@ -7,15 +7,18 @@ const Header = () => {
 
             <div className="w-full block flex-grow sm:flex sm:items-center sm:w-auto">
                 <div className="text-sm sm:flex-grow">
-                    <button className="block mt-4 sm:inline-block sm:mt-0 text-blue-300 hover:text-white mr-4">Your Account</button>
+                    <button className="block mt-4 sm:inline-block sm:mt-0 text-blue-300 hover:text-white mr-4">
+                        Your Account
+                    </button>
                 </div>
             </div>
             <div className="block flex-row-reverse sm:flex sm:items-center sm:w-auto">
                 <div className="text-sm sm:flex-row-reverse">
-                    <button className="block mt-4 sm:inline-block sm:mt-0 text-blue-300 hover:text-white mr-4">Sign Out</button>
+                    <button className="block mt-4 sm:inline-block sm:mt-0 text-blue-300 hover:text-white mr-4">
+                        Sign Out
+                    </button>
                 </div>
             </div>
-            
         </nav>
     )
 }
