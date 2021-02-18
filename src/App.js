@@ -11,16 +11,21 @@ function App() {
     const [isLoading, setIsLoading] = useState(true)
     const [term, setTerm] = useState("")
 
-    useEffect(() => {
-        fetch(
+    let fetchItems = async () => {
+        let response = await fetch(
             `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`
         )
-            .then((res) => res.json())
-            .then((data) => {
-                setImages(data.hits)
-                setIsLoading(false)
-            })
-            .catch((err) => console.log(err))
+        if (response.ok) {
+            let data = await response.json()
+            setImages(data.hits)
+            setIsLoading(false)
+        } else {
+            console.log(response.status)
+        }
+    }
+
+    useEffect(() => {
+        fetchItems()
     }, [term])
 
     return (
