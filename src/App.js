@@ -4,7 +4,7 @@ import ImageSearch from "./components/ImageSearch"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import About from "./components/About"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { HashRouter as Router, Route } from "react-router-dom"
 
 function App() {
     const [images, setImages] = useState([])
@@ -24,15 +24,15 @@ function App() {
     }, [term])
 
     return (
-        <Router>
-            <div>
-                <Header />
-                <div className="container mx-auto">
-                    <Route
-                        path="/"
-                        exact
-                        render={(props) => (
-                            <>
+        <div>
+            <Header />
+            <Router>
+                <Route
+                    path="/"
+                    exact
+                    render={(props) => (
+                        <div className="container mx-auto">
+                            <div>
                                 <ImageSearch searchText={(text) => setTerm(text)} />
 
                                 {!isLoading && images.length === 0 && (
@@ -51,14 +51,14 @@ function App() {
                                         ))}
                                     </div>
                                 )}
-                            </>
-                        )}
-                    />
-                </div>
+                            </div>
+                        </div>
+                    )}
+                />
                 <Route path="/about" component={About} />
-                <Footer />
-            </div>
-        </Router>
+            </Router>
+            <Footer />
+        </div>
     )
 }
 
