@@ -25,8 +25,8 @@ function App() {
 
     return (
         <div>
-            <Header />
             <Router>
+                <Header />
                 <Route
                     path="/"
                     exact
@@ -56,8 +56,8 @@ function App() {
                     )}
                 />
                 <Route path="/about" component={About} />
+                <Footer />
             </Router>
-            <Footer />
         </div>
     )
 }
