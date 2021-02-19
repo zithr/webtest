@@ -12,7 +12,6 @@ function App() {
     const [term, setTerm] = useState("")
     const atBottom = () => {
         setPage(page + 1)
-        console.log("heyguysatbottom")
     }
     const [page, setPage] = useState(1)
     let fetchItems = async (fetchPage) => {
@@ -28,13 +27,11 @@ function App() {
         }
     }
     useEffect(() => {
-        setImages([])
         if (page === 1) {
             fetchItems(page)
         } else {
             setPage(1)
         }
-        setImages([])
     }, [term])
 
     useEffect(() => {
@@ -44,7 +41,7 @@ function App() {
     return (
         <div>
             <Router>
-                <Header setTerm={setTerm} />
+                <Header setTerm={setTerm} setImages={setImages} />
 
                 <Route
                     path="/"

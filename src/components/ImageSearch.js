@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 
-const ImageSearch = ({ searchText }) => {
+const ImageSearch = ({ searchText, setImages }) => {
     const [text, setText] = useState("")
     const onSubmit = (e) => {
         e.preventDefault()
 
+        setImages([])
         searchText(text)
     }
 
