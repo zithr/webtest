@@ -3,6 +3,7 @@ import { BottomScrollListener } from "react-bottom-scroll-listener"
 import ImageCard from "./components/ImageCard"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import Home from "./components/Home"
 import About from "./components/About"
 import { HashRouter as Router, Route } from "react-router-dom"
 
@@ -71,6 +72,7 @@ function App() {
                         </>
                     )}
                 />
+                <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />
                 <Footer />
             </Router>
