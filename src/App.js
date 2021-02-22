@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./components/Home"
 import About from "./components/About"
+import CreateAccount from "./components/CreateAccount"
 import { HashRouter as Router, Route } from "react-router-dom"
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
                 />
                 <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />
+                <Route path="/create" component={CreateAccount} />
                 <Footer />
             </Router>
             <BottomScrollListener onBottom={atBottom} />

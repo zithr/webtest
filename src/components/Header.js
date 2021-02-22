@@ -22,6 +22,9 @@ const Header = ({ setTerm, setImages }) => {
             </div>
             <ImageSearch searchText={(text) => setTerm(text)} setImages={setImages} />
             <div className="text-sm sm:flex-row-reverse">
+                <Link to="/create" className="self-end text-sm text-blue-300 hover:text-white mr-4">
+                    Create Account
+                </Link>
                 <button className="self-end text-blue-300 hover:text-white mr-4">Sign Out</button>
             </div>
         </nav>
