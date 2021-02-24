@@ -43,6 +43,7 @@ const Homecarousel = () => {
                             naturalSlideHeight={20}
                             totalSlides={10}
                             visibleSlides={4}
+                            className="relative"
                         >
                             <Slider>
                                 {images.map((image, index) => (
@@ -51,8 +52,14 @@ const Homecarousel = () => {
                                     </Slide>
                                 ))}
                             </Slider>
-                            <ButtonBack>Back</ButtonBack>
-                            <ButtonNext>Next</ButtonNext>
+                            <ButtonNext className="absolute top-20 right-0 rounded-full h-20 w-20 text-6xl font-black text-gray-900 hover:bg-blue-200">
+                                {" "}
+                                &gt;{" "}
+                            </ButtonNext>
+                            <ButtonBack className="absolute top-20 left-0 rounded-full h-20 w-20 text-6xl font-black text-gray-900 hover:bg-blue-200">
+                                {" "}
+                                &lt;{" "}
+                            </ButtonBack>
                         </CarouselProvider>
                     </div>
                 )}
