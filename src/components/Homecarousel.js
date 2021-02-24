@@ -52,11 +52,11 @@ const Homecarousel = () => {
                                     </Slide>
                                 ))}
                             </Slider>
-                            <ButtonNext className="absolute top-20 right-0 rounded-full h-20 w-20 text-6xl font-black text-gray-900 hover:bg-blue-200">
+                            <ButtonNext className="absolute top-2/4 right-0 transform -translate-y-2/4 rounded-full h-20 w-20 flex items-center justify-center text-6xl font-black text-gray-900 hover:bg-blue-200">
                                 {" "}
                                 &gt;{" "}
                             </ButtonNext>
-                            <ButtonBack className="absolute top-20 left-0 rounded-full h-20 w-20 text-6xl font-black text-gray-900 hover:bg-blue-200">
+                            <ButtonBack className="absolute top-2/4 left-0 transform -translate-y-2/4 rounded-full h-20 w-20 flex items-center justify-center text-6xl font-black text-gray-900 hover:bg-blue-200">
                                 {" "}
                                 &lt;{" "}
                             </ButtonBack>
