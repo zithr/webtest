@@ -10,13 +10,13 @@ const Header = ({ setTerm, setImages }) => {
                     <div className="self-end text-white font-bold text-xl">hub</div>
                 </div>
 
-                <Link to="/home" className="self-end text-sm text-blue-300 hover:text-white mr-4">
+                <Link to="/" className="self-end text-sm text-blue-300 hover:text-white mr-4">
                     Home
                 </Link>
                 <button className="self-end text-sm text-blue-300 hover:text-white mr-4">
                     Your Account
                 </button>
-                <Link to="/" className="self-end text-sm text-blue-300 hover:text-white mr-4">
+                <Link to="/search" className="self-end text-sm text-blue-300 hover:text-white mr-4">
                     Search
                 </Link>
             </div>

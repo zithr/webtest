@@ -6,6 +6,7 @@ import Footer from "./components/Footer"
 import Home from "./components/Home"
 import About from "./components/About"
 import CreateAccount from "./components/CreateAccount"
+import Homecarousel from "./components/Homecarousel"
 import { HashRouter as Router, Route } from "react-router-dom"
 
 function App() {
@@ -46,8 +47,7 @@ function App() {
                 <Header setTerm={setTerm} setImages={setImages} />
 
                 <Route
-                    path="/"
-                    exact
+                    path="/search"
                     render={(props) => (
                         <>
                             <div className="container mx-auto">
@@ -73,7 +73,8 @@ function App() {
                         </>
                     )}
                 />
-                <Route path="/home" component={Home} />
+                <Route path="/" exact component={Home} />
+                <Route path="/" exact component={Homecarousel} />
                 <Route path="/about" component={About} />
                 <Route path="/create" component={CreateAccount} />
                 <Footer />
