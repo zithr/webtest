@@ -7,9 +7,15 @@ const Footer = () => {
                 <Link to="/about" className="text-blue-300 hover:text-white mr-4">
                     About
                 </Link>
-                <button className="text-blue-300 hover:text-white mr-4">News</button>
-                <button className="text-blue-300 hover:text-white mr-4">Privacy</button>
-                <button className="text-blue-300 hover:text-white mr-4">Help</button>
+                <Link to="/news" className="text-blue-300 hover:text-white mr-4">
+                    News
+                </Link>
+                <Link to="/privacy" className="text-blue-300 hover:text-white mr-4">
+                    Privacy
+                </Link>
+                <Link to="/help" className="text-blue-300 hover:text-white mr-4">
+                    Help
+                </Link>
             </div>
 
             <div className="text-blue-300 hover:text-white mr-4">Copyright &copy; 2021</div>

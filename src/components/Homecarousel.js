@@ -52,13 +52,55 @@ const Homecarousel = () => {
                                     </Slide>
                                 ))}
                             </Slider>
-                            <ButtonNext className="absolute top-2/4 right-0 transform -translate-y-2/4 rounded-full h-20 w-20 flex items-center justify-center text-6xl font-black text-gray-900 hover:bg-blue-200">
-                                {" "}
-                                &gt;{" "}
+                            <ButtonNext className="absolute top-2/4 right-0 transform -translate-y-2/4 outline-none rounded-full h-6 w-6 flex items-center justify-center text-6xl font-black text-gray-900 focus:outline-none hover:bg-blue-200 focus:ring-2 focus:ring-blue-500">
+                                <div className="">
+                                    <svg
+                                        width="22"
+                                        height="22"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <circle
+                                            cx="11"
+                                            cy="11"
+                                            r="11"
+                                            fill="#C4C4C4"
+                                            fill-opacity="0.4"
+                                        />
+                                        <path
+                                            d="M8.5 4.75L14.75 11 8.5 17.25"
+                                            stroke="#383838"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
                             </ButtonNext>
-                            <ButtonBack className="absolute top-2/4 left-0 transform -translate-y-2/4 rounded-full h-20 w-20 flex items-center justify-center text-6xl font-black text-gray-900 hover:bg-blue-200">
-                                {" "}
-                                &lt;{" "}
+                            <ButtonBack className="absolute top-2/4 left-0 transform rotate-180 -translate-y-2/4 outline-none rounded-full h-6 w-6 flex items-center justify-center text-6xl font-black text-gray-900 focus:outline-none hover:bg-blue-200">
+                                <div className="">
+                                    <svg
+                                        width="22"
+                                        height="22"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <circle
+                                            cx="11"
+                                            cy="11"
+                                            r="11"
+                                            fill="#C4C4C4"
+                                            fill-opacity="0.4"
+                                        />
+                                        <path
+                                            d="M8.5 4.75L14.75 11 8.5 17.25"
+                                            stroke="#383838"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
                             </ButtonBack>
                         </CarouselProvider>
                     </div>

@@ -28,7 +28,7 @@ const CreateAccount = () => {
                             First Name
                         </label>
                         <input
-                            class="border py-2 px-3 text-grey-darkest"
+                            class="outline-none border py-2 px-3 text-grey-darkest focus:ring-2 focus:ring-blue-500"
                             type="text"
                             name="first_name"
                             id="first_name"
@@ -44,7 +44,7 @@ const CreateAccount = () => {
                             Last Name
                         </label>
                         <input
-                            class="border py-2 px-3 text-grey-darkest"
+                            class="outline-none border py-2 px-3 text-grey-darkest focus:ring-2 focus:ring-blue-500"
                             type="text"
                             name="last_name"
                             id="last_name"
@@ -60,7 +60,7 @@ const CreateAccount = () => {
                             Email
                         </label>
                         <input
-                            class="border py-2 px-3 text-grey-darkest"
+                            class="outline-none border py-2 px-3 text-grey-darkest focus:ring-2 focus:ring-blue-500"
                             type="email"
                             name="email"
                             id="email"
@@ -76,7 +76,7 @@ const CreateAccount = () => {
                             Password
                         </label>
                         <input
-                            class="border py-2 px-3 text-grey-darkest"
+                            class="outline-none border py-2 px-3 text-grey-darkest focus:ring-2 focus:ring-blue-500"
                             type="password"
                             name="password"
                             id="password"

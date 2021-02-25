@@ -6,6 +6,11 @@ import Footer from "./components/Footer"
 import Home from "./components/Home"
 import About from "./components/About"
 import CreateAccount from "./components/CreateAccount"
+import YourAccount from "./components/YourAccount"
+import Privacy from "./components/Privacy"
+import News from "./components/News"
+import Help from "./components/Help"
+import Shop from "./components/Shop"
 import Homecarousel from "./components/Homecarousel"
 import { HashRouter as Router, Route } from "react-router-dom"
 
@@ -77,6 +82,11 @@ function App() {
                 <Route path="/" exact component={Homecarousel} />
                 <Route path="/about" component={About} />
                 <Route path="/create" component={CreateAccount} />
+                <Route path="/account" component={YourAccount} />
+                <Route path="/privacy" component={Privacy} />
+                <Route path="/news" component={News} />
+                <Route path="/help" component={Help} />
+                <Route path="/yourshop" component={Shop} />
                 <Footer />
             </Router>
             <BottomScrollListener onBottom={atBottom} />

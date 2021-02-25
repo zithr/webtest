@@ -9,7 +9,7 @@ const Home = () => {
                     </div>
                     <div className="rounded overflow-hidden shaddow-lg">
                         <img
-                            src="https://source.unsplash.com/random"
+                            src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8YmVhY2h8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60"
                             alt=""
                             className="h-full max-w-sm max-h-1/5"
                         />
@@ -30,7 +30,7 @@ const Home = () => {
                     </div>
                     <div className="max-w-sm rounded overflow-hidden shaddow-lg">
                         <img
-                            src="https://source.unsplash.com/random"
+                            src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjN8fGJlYWNofGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                             alt=""
                             className="max-h-1/5"
                         />
