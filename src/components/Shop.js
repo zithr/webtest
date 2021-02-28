@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Shop = () => {
     const shopItems = [
         "Item1",
@@ -22,8 +24,16 @@ const Shop = () => {
                         <div className="text-lg py-6">Items currently listed: </div>
                     </div>
                     <div className="grid grid-cols-4 gap-3">
+                        <Link
+                            to="add"
+                            className="border-2 border-gray-400 flex justify-center items-center place-items-center w-full max-w-xs h-32"
+                        >
+                            Add an item
+                        </Link>
                         {shopItems.map((item) => (
-                            <ul>{item}</ul>
+                            <div className="border-2 border-gray-400 flex justify-center items-center place-items-center w-full max-w-xs h-32">
+                                {item}
+                            </div>
                         ))}
                     </div>
                 </div>

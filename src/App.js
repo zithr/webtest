@@ -12,6 +12,7 @@ import News from "./components/News"
 import Help from "./components/Help"
 import Shop from "./components/Shop"
 import Messages from "./components/Messages"
+import AddItem from "./components/AddItem"
 import Homecarousel from "./components/Homecarousel"
 import { HashRouter as Router, Route } from "react-router-dom"
 
@@ -89,6 +90,7 @@ function App() {
                 <Route path="/help" component={Help} />
                 <Route path="/yourshop" component={Shop} />
                 <Route path="/messages" component={Messages} />
+                <Route path="/add" component={AddItem} />
                 <Footer />
             </Router>
             <BottomScrollListener onBottom={atBottom} />

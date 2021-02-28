@@ -15,7 +15,7 @@ const CreateAccount = () => {
 
     return (
         <div className="bg-indigo-200 h-screen">
-            <div className="container mx-auto w-full bg-white rounded shadow-lg p-8">
+            <div className="container mx-auto w-3/6 bg-white rounded shadow-lg p-8">
                 <div className="text-2xl flex items-center text-gray-800 font-serif mx-auto py-2">
                     Create your Account:
                 </div>

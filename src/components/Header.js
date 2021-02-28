@@ -46,10 +46,10 @@ const Header = ({ setTerm, setImages }) => {
                 </Link>
                 {isLoggedIn && (
                     <Link
-                        to="/account"
+                        to="/yourshop"
                         className="self-end text-sm text-blue-300 hover:text-white mr-4"
                     >
-                        Your Account
+                        Your Shop
                     </Link>
                 )}
                 <Link to="/search" className="self-end text-sm text-blue-300 hover:text-white mr-4">
@@ -60,22 +60,22 @@ const Header = ({ setTerm, setImages }) => {
             <div className="text-sm sm:flex-row-reverse">
                 {isLoggedIn ? (
                     <div ref={wrapperRef}>
-                        <div className="flex mt-2">
-                            <button
-                                className="text-blue-300 font-semibold text-md focus:outline-none"
-                                onClick={() => {
-                                    setdropDownOpen(!dropDownOpen)
-                                    // document.addEventListener("mousedown", listener)
-                                }}
-                            >
-                                Hello, team
-                            </button>
+                        <button
+                            className="flex mt-2 focus:outline-none"
+                            onClick={() => {
+                                setdropDownOpen(!dropDownOpen)
+                                // document.addEventListener("mousedown", listener)
+                            }}
+                        >
+                            <div className="text-blue-300 font-semibold text-md rounded-lg px-1 pt-2 underline focus:outline-none hover:bg-blue-800">
+                                Hello team
+                            </div>
                             <img
-                                className="h-10 w-10 ml-2 object-cover rounded-full border-2 border-gray-600"
+                                className="h-10 w-10 ml-2 object-cover rounded-full border-2 border-gray-600 hover:border-gray-400"
                                 src="https://images.unsplash.com/photo-1530842128367-9e448d986a75?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGhlYWRzaG90fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                                 alt=""
                             />
-                        </div>
+                        </button>
 
                         {dropDownOpen && (
                             <>
