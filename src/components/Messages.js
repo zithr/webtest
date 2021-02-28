@@ -1,7 +1,7 @@
 const Messages = () => {
     return (
         <div>
-            <div className="bg-blue-300 h-screen font-serif">
+            <div className="bg-blue-300 min-h-screen font-serif">
                 <div className="container mx-auto">
                     <div className="h2 text-3xl py-6 font-bold">Your messages</div>
                     <div className="flex">

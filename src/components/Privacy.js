@@ -1,6 +1,6 @@
 const Privacy = () => {
     return (
-        <div className="bg-blue-300 h-screen">
+        <div className="bg-blue-300 min-h-screen">
             <div className="container mx-auto font-serif">
                 <div className="h2 text-3xl pt-6 font-bold">Privacy Policy</div>
                 <div className="flex">

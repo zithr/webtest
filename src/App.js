@@ -49,7 +49,7 @@ function App() {
     }, [page])
 
     return (
-        <div>
+        <div className="h-screen bg-blue-300">
             <Router>
                 <Header setTerm={setTerm} setImages={setImages} />
 
