@@ -1,4 +1,4 @@
-const News = () => {
+const AddItem = () => {
     return (
         <div>
             <div className="bg-blue-300 min-h-screen font-serif">
@@ -36,4 +36,4 @@ const News = () => {
     )
 }
 
-export default News
+export default AddItem

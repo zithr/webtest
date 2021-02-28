@@ -34,7 +34,7 @@ const Shop = () => {
                             {shopItems.map((item) => (
                                 <div className="relative max-w-xs">
                                     <div className="border-2 border-gray-400 flex justify-center items-center w-full h-32">
-                                        <div className=" flex justify-items-stretch items-center text-right">
+                                        <div className="flex justify-items-stretch items-center text-right">
                                             {item}
                                         </div>
                                     </div>
