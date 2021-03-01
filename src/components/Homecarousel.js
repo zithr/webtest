@@ -37,7 +37,7 @@ const Homecarousel = () => {
                         Images loading...
                     </h1>
                 ) : (
-                    <div className="pb-16">
+                    <div className="pb-16 bg-blue-300">
                         <CarouselProvider
                             naturalSlideWidth={30}
                             naturalSlideHeight={20}

@@ -8,7 +8,7 @@ const Login = () => {
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
             }}
-            className="min-h-screen flex items-center"
+            className="flex flex-1 items-center "
         >
             <div className="bg-white h-112 w-96 rounded-xl ml-32 -mt-32 shadow-lg">
                 <div className="container w-10/12 m-auto">
