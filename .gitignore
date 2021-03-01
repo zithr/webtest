@@ -25,3 +25,5 @@ yarn-error.log*
 src/assets/main.css
 
 .idea
+
+tailwind.config.js
