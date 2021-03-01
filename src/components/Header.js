@@ -130,15 +130,16 @@ const Header = ({ setTerm, setImages }) => {
                         >
                             Create Account
                         </Link>
-                        <button
+                        <Link
+                            to="/login"
                             className="self-end text-blue-300 hover:text-white mr-4"
-                            onClick={() => {
-                                alert("You have logged in")
-                                setIsLoggedIn(true)
-                            }}
+                            // onClick={() => {
+                            //     alert("You have logged in")
+                            //     setIsLoggedIn(true)
+                            // }}
                         >
                             Sign In
-                        </button>
+                        </Link>
                     </>
                 )}
             </div>

@@ -28,7 +28,7 @@ module.exports = {
             pink: colors.pink,
         },
         spacing: {
-            px: "1px",
+            px: "px",
             0: "0px",
             0.5: "0.125rem",
             1: "0.25rem",
@@ -63,6 +63,8 @@ module.exports = {
             72: "18rem",
             80: "20rem",
             96: "24rem",
+            112: "28rem",
+            124: "31rem",
         },
         animation: {
             none: "none",

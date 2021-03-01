@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./components/Home"
 import About from "./components/About"
+import Login from "./components/Login"
 import CreateAccount from "./components/CreateAccount"
 import YourAccount from "./components/YourAccount"
 import Privacy from "./components/Privacy"
@@ -14,6 +15,7 @@ import Shop from "./components/Shop"
 import Messages from "./components/Messages"
 import AddItem from "./components/AddItem"
 import Homecarousel from "./components/Homecarousel"
+import users from "./db.json"
 import { HashRouter as Router, Route } from "react-router-dom"
 
 function App() {
@@ -83,6 +85,7 @@ function App() {
                 <Route path="/" exact component={Home} />
                 <Route path="/" exact component={Homecarousel} />
                 <Route path="/about" component={About} />
+                <Route path="/login" component={Login} />
                 <Route path="/create" component={CreateAccount} />
                 <Route path="/account" component={YourAccount} />
                 <Route path="/privacy" component={Privacy} />
