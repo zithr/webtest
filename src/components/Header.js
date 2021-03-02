@@ -3,8 +3,12 @@ import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import ImageSearch from "./ImageSearch"
 
-const Header = ({ setTerm, setImages }) => {
+const Header = ({ setTerm, setImages, checklogged, logout }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    if (checklogged & !isLoggedIn) {
+        setIsLoggedIn(true)
+    }
+
     const [dropDownOpen, setdropDownOpen] = useState(false)
     // const listener = (e) => {
     //     if (!divRef.current || divRef.current.contains(divRef.target)) {
@@ -111,7 +115,7 @@ const Header = ({ setTerm, setImages }) => {
                                         to="/"
                                         className="block w-full px-4 py-1 hover:bg-blue-500 text-left hover:text-white"
                                         onClick={() => {
-                                            alert("You've been signed out.")
+                                            logout()
                                             setIsLoggedIn(false)
                                             setdropDownOpen(!dropDownOpen)
                                         }}

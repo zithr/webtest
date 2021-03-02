@@ -22,6 +22,7 @@ function App() {
     const [images, setImages] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [term, setTerm] = useState("")
+    const [logged, setLogged] = useState(false)
     const atBottom = () => {
         setPage(page + 1)
     }
@@ -53,7 +54,12 @@ function App() {
     return (
         <div className="flex flex-col h-screen bg-blue-300">
             <Router>
-                <Header setTerm={setTerm} setImages={setImages} />
+                <Header
+                    setTerm={setTerm}
+                    setImages={setImages}
+                    checklogged={logged}
+                    logout={() => setLogged(false)}
+                />
 
                 <Route
                     path="/search"
@@ -85,7 +91,9 @@ function App() {
                 <Route path="/" exact component={Home} />
                 <Route path="/" exact component={Homecarousel} />
                 <Route path="/about" component={About} />
-                <Route path="/login" component={Login} />
+                <Route path="/login">
+                    <Login auth={(x) => setLogged(x)} />
+                </Route>
                 <Route path="/create" component={CreateAccount} />
                 <Route path="/account" component={YourAccount} />
                 <Route path="/privacy" component={Privacy} />
