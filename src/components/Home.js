@@ -1,7 +1,7 @@
 const Home = () => {
     return (
         <div className="">
-            <div className=" mx-auto bg-blue-300">
+            <div className=" mx-auto bg-blue-50">
                 <div className="flex justify-around items-center">
                     <div className="text-gray-800 font-serif justify-center">
                         <div className="text-3xl font-black">Support Local Photographers</div>
@@ -16,7 +16,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className=" mx-auto bg-indigo-100">
+            <div className=" mx-auto mt-5 bg-indigo-50">
                 <div className="flex justify-around items-center">
                     <div className="text-gray-800 font-serif">
                         <div className="text-3xl font-black">What is this place?</div>

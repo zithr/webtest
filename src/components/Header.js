@@ -37,31 +37,37 @@ const Header = ({ setTerm, setImages, checklogged, logout }) => {
     useOutsideAlerter(wrapperRef)
 
     return (
-        <nav className="sticky top-0 flex items-center justify-between bg-gray-800 p-2">
+        <nav className="sticky top-0 flex items-center justify-between bg-gray-50 p-2 shadow-md">
             <div className="flex">
                 <div className="mr-6">
-                    <Link to="/" className="self-end text-white font-bold text-xl">
+                    <Link to="/" className="self-end text-black font-bold text-2xl">
                         hub
                     </Link>
                 </div>
 
-                <Link to="/" className="self-end text-sm text-blue-300 hover:text-white mr-4">
+                <Link
+                    to="/"
+                    className="self-end text-gray-700 font-semibold text-md hover:text-gray-900 mr-4"
+                >
                     Home
                 </Link>
                 {isLoggedIn && (
                     <Link
                         to="/yourshop"
-                        className="self-end text-sm text-blue-300 hover:text-white mr-4"
+                        className="self-end text-gray-700 font-semibold text-md hover:text-gray-900 mr-4"
                     >
                         Your Shop
                     </Link>
                 )}
-                <Link to="/search" className="self-end text-sm text-blue-300 hover:text-white mr-4">
+                <Link
+                    to="/search"
+                    className="self-end text-gray-700 font-semibold text-md hover:text-gray-900 mr-4"
+                >
                     Search
                 </Link>
             </div>
             <ImageSearch searchText={(text) => setTerm(text)} setImages={setImages} />
-            <div className="text-sm sm:flex-row-reverse">
+            <div className="text-md sm:flex-row-reverse">
                 {isLoggedIn ? (
                     <div ref={wrapperRef}>
                         <button
@@ -71,7 +77,7 @@ const Header = ({ setTerm, setImages, checklogged, logout }) => {
                                 // document.addEventListener("mousedown", listener)
                             }}
                         >
-                            <div className="text-blue-300 font-semibold text-md rounded-lg px-1 pt-2 underline focus:outline-none hover:bg-blue-800">
+                            <div className="text-gray-700 font-semibold text-md rounded-lg px-1 pt-2 underline focus:outline-none hover:bg-gray-100">
                                 Hello team
                             </div>
                             <img
@@ -83,7 +89,7 @@ const Header = ({ setTerm, setImages, checklogged, logout }) => {
 
                         {dropDownOpen && (
                             <>
-                                <div className="absolute mt-2 -ml-16 w-44 py-1 bg-white rounded-lg shadow-xl text-sm text-gray-600 font-medium">
+                                <div className="absolute border border-gray-200 mt-2 -ml-16 w-44 py-1 bg-white rounded-lg shadow-xl text-sm text-gray-600 font-medium">
                                     <Link
                                         to="/messages"
                                         className="block w-full px-4 py-1 hover:bg-blue-500 text-left hover:text-white"
@@ -130,13 +136,13 @@ const Header = ({ setTerm, setImages, checklogged, logout }) => {
                     <>
                         <Link
                             to="/create"
-                            className="self-end text-sm text-blue-300 hover:text-white mr-4"
+                            className="self-end text-gray-700 font-semibold text-md hover:text-gray-900 mr-4"
                         >
                             Create Account
                         </Link>
                         <Link
                             to="/login"
-                            className="self-end text-blue-300 hover:text-white mr-4"
+                            className="self-end text-gray-700 font-semibold text-md hover:text-gray-900 mr-4"
                             // onClick={() => {
                             //     alert("You have logged in")
                             //     setIsLoggedIn(true)

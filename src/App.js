@@ -20,6 +20,7 @@ import UserTest from "./components/UserTest"
 import users from "./db.json"
 import { HashRouter as Router, Route } from "react-router-dom"
 import store from "./redux/store"
+import SearchContainer from "./components/SearchContainer"
 
 function App() {
     const [images, setImages] = useState([])
@@ -32,7 +33,7 @@ function App() {
     const [page, setPage] = useState(1)
     let fetchItems = async (fetchPage) => {
         let response = await fetch(
-            `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true&page=${fetchPage}`
+            `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&safesearch=true&pretty=true&page=${fetchPage}`
         )
         if (response.ok) {
             let data = await response.json()
@@ -43,6 +44,7 @@ function App() {
         }
     }
     useEffect(() => {
+        setIsLoading(true)
         if (page === 1) {
             fetchItems(page)
         } else {
@@ -51,12 +53,13 @@ function App() {
     }, [term])
 
     useEffect(() => {
+        setIsLoading(true)
         fetchItems(page)
     }, [page])
 
     return (
         <Provider store={store}>
-            <div className="flex flex-col h-screen bg-blue-300">
+            <div className="flex flex-col min-h-screen bg-blue-50">
                 <Router>
                     <Header
                         setTerm={setTerm}
@@ -65,33 +68,14 @@ function App() {
                         logout={() => setLogged(false)}
                     />
 
-                    <Route
-                        path="/search"
-                        render={(props) => (
-                            <>
-                                <div className="container mx-auto">
-                                    <div>
-                                        {!isLoading && images.length === 0 && (
-                                            <h1 className="text-5xl text-center mx-auto mt-32 bg-gray-60">
-                                                No Images Found
-                                            </h1>
-                                        )}
-                                        {isLoading ? (
-                                            <h1 className="text-6xl text-center mx-auto mt-32 bg-gray-60">
-                                                Images loading...
-                                            </h1>
-                                        ) : (
-                                            <div className="grid grid-cols-4 gap-3">
-                                                {images.map((image) => (
-                                                    <ImageCard key={image.id} image={image} />
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </>
+                    <Route path="/search">
+                        <SearchContainer images={images} isLoading={isLoading} />
+                        {page > 1 && isLoading && (
+                            <div className="text-3xl text-center mx-auto bg-gray-60">
+                                Images loading...
+                            </div>
                         )}
-                    />
+                    </Route>
                     <Route path="/" exact component={Home} />
                     <Route path="/" exact component={Homecarousel} />
                     <Route path="/about" component={About} />
