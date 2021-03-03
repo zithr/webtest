@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Provider } from "react-redux"
 import { BottomScrollListener } from "react-bottom-scroll-listener"
 import ImageCard from "./components/ImageCard"
 import Header from "./components/Header"
@@ -15,8 +16,10 @@ import Shop from "./components/Shop"
 import Messages from "./components/Messages"
 import AddItem from "./components/AddItem"
 import Homecarousel from "./components/Homecarousel"
+import UserTest from "./components/UserTest"
 import users from "./db.json"
 import { HashRouter as Router, Route } from "react-router-dom"
+import store from "./redux/store"
 
 function App() {
     const [images, setImages] = useState([])
@@ -52,60 +55,63 @@ function App() {
     }, [page])
 
     return (
-        <div className="flex flex-col h-screen bg-blue-300">
-            <Router>
-                <Header
-                    setTerm={setTerm}
-                    setImages={setImages}
-                    checklogged={logged}
-                    logout={() => setLogged(false)}
-                />
+        <Provider store={store}>
+            <div className="flex flex-col h-screen bg-blue-300">
+                <Router>
+                    <Header
+                        setTerm={setTerm}
+                        setImages={setImages}
+                        checklogged={logged}
+                        logout={() => setLogged(false)}
+                    />
 
-                <Route
-                    path="/search"
-                    render={(props) => (
-                        <>
-                            <div className="container mx-auto">
-                                <div>
-                                    {!isLoading && images.length === 0 && (
-                                        <h1 className="text-5xl text-center mx-auto mt-32 bg-gray-60">
-                                            No Images Found
-                                        </h1>
-                                    )}
-                                    {isLoading ? (
-                                        <h1 className="text-6xl text-center mx-auto mt-32 bg-gray-60">
-                                            Images loading...
-                                        </h1>
-                                    ) : (
-                                        <div className="grid grid-cols-4 gap-3">
-                                            {images.map((image) => (
-                                                <ImageCard key={image.id} image={image} />
-                                            ))}
-                                        </div>
-                                    )}
+                    <Route
+                        path="/search"
+                        render={(props) => (
+                            <>
+                                <div className="container mx-auto">
+                                    <div>
+                                        {!isLoading && images.length === 0 && (
+                                            <h1 className="text-5xl text-center mx-auto mt-32 bg-gray-60">
+                                                No Images Found
+                                            </h1>
+                                        )}
+                                        {isLoading ? (
+                                            <h1 className="text-6xl text-center mx-auto mt-32 bg-gray-60">
+                                                Images loading...
+                                            </h1>
+                                        ) : (
+                                            <div className="grid grid-cols-4 gap-3">
+                                                {images.map((image) => (
+                                                    <ImageCard key={image.id} image={image} />
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </>
-                    )}
-                />
-                <Route path="/" exact component={Home} />
-                <Route path="/" exact component={Homecarousel} />
-                <Route path="/about" component={About} />
-                <Route path="/login">
-                    <Login auth={(x) => setLogged(x)} />
-                </Route>
-                <Route path="/create" component={CreateAccount} />
-                <Route path="/account" component={YourAccount} />
-                <Route path="/privacy" component={Privacy} />
-                <Route path="/news" component={News} />
-                <Route path="/help" component={Help} />
-                <Route path="/yourshop" component={Shop} />
-                <Route path="/messages" component={Messages} />
-                <Route path="/add" component={AddItem} />
-                <Footer />
-            </Router>
-            <BottomScrollListener onBottom={atBottom} />
-        </div>
+                            </>
+                        )}
+                    />
+                    <Route path="/" exact component={Home} />
+                    <Route path="/" exact component={Homecarousel} />
+                    <Route path="/about" component={About} />
+                    <Route path="/login">
+                        <Login auth={(x) => setLogged(x)} />
+                    </Route>
+                    <Route path="/create" component={CreateAccount} />
+                    <Route path="/account" component={YourAccount} />
+                    <Route path="/privacy" component={Privacy} />
+                    <Route path="/news" component={News} />
+                    <Route path="/help" component={Help} />
+                    <Route path="/yourshop" component={Shop} />
+                    <Route path="/messages" component={Messages} />
+                    <Route path="/add" component={AddItem} />
+                    <Route path="/users" component={UserTest} />
+                    <Footer />
+                </Router>
+                <BottomScrollListener onBottom={atBottom} />
+            </div>
+        </Provider>
     )
 }
 

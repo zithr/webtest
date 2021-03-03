@@ -19,8 +19,7 @@ const Login = ({ auth }) => {
     let passwordCheck = async (e) => {
         e.preventDefault()
         if (passwordInput === "test") {
-            console.log("Login Success")
-            setLoginStage(0)
+            setLoginStage(0) // reset login form to start, find better way to manage login stages/resets
             auth(true)
             history.push("/")
         } else {
@@ -37,7 +36,7 @@ const Login = ({ auth }) => {
             }}
             className="flex flex-1 items-center"
         >
-            <div className="bg-white w-96 rounded-xl ml-32 -mt-32 shadow-lg">
+            <div className="bg-white w-96 rounded-xl ml-32 mb-24 shadow-lg">
                 <div className="container w-10/12 m-auto">
                     <div className="text-gray-800 font-semibold text-2xl pt-12 italic">hub</div>
                     <div className="text-gray-800 font-semibold text-xl pt-10">Log in</div>
