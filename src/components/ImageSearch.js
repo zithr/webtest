@@ -16,7 +16,7 @@ const ImageSearch = ({ searchText, setImages }) => {
                 <div className="flex group items-center">
                     <input
                         onChange={(e) => setText(e.target.value)}
-                        className="appearance-none bg-transparent w-full text-gray-400 mr-3 px-2 leading-tight focus:outline-none  border-b-2 border-purple-200 py-2 focus:border-purple-300"
+                        className="appearance-none bg-transparent w-full text-gray-700 mr-3 px-2 leading-tight focus:outline-none  border-b-2 border-purple-200 py-2 focus:border-purple-300"
                         type="text"
                         placeholder="Search for images..."
                     />

@@ -58,7 +58,7 @@ const Homecarousel = () => {
                                     </Slide>
                                 ))}
                             </Slider>
-                            <ButtonNext className="absolute top-2/4 right-0 transform -translate-y-2/4 outline-none rounded-full h-6 w-6 flex items-center justify-center text-6xl font-black text-gray-900 focus:outline-none hover:bg-blue-200 focus:ring-2 focus:ring-blue-500">
+                            <ButtonNext className="absolute top-2/4 right-1 transform -translate-y-2/4 outline-none rounded-full h-6 w-6 flex items-center justify-center text-6xl font-black text-gray-900 focus:outline-none hover:bg-blue-200 focus:ring-2 focus:ring-blue-500">
                                 <div className="">
                                     <svg
                                         width="22"

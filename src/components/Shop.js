@@ -17,7 +17,7 @@ const Shop = () => {
     ]
     return (
         <div>
-            <div className="bg-blue-300 font-serif min-h-screen">
+            <div className="bg-yellow-50 font-serif min-h-screen">
                 <div className="container mx-auto">
                     <div className="h2 text-3xl pt-6 font-bold">Your shop</div>
                     <div className="flex">

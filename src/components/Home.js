@@ -16,8 +16,17 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className=" mx-auto mt-5 bg-indigo-50">
-                <div className="flex justify-around items-center">
+            <div className=" mx-auto mt-4">
+                {" "}
+                {/*colour taken from bg image currently*/}
+                <div
+                    className="flex justify-around items-center"
+                    style={{
+                        backgroundImage: `url("https://images.unsplash.com/photo-1504198266287-1659872e6590?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                    }}
+                >
                     <div className="text-gray-800 font-serif">
                         <div className="text-3xl font-black">What is this place?</div>
                         <div className="max-w-md text-lg font-medium">
