@@ -150,6 +150,7 @@ const Shop = () => {
                                             rows="4"
                                             placeholder="Write a small description of your shop"
                                             type="text"
+                                            defaultValue={shopDescription}
                                             onChange={(e) => {
                                                 setNewShopDescription(e.target.value)
                                             }}
