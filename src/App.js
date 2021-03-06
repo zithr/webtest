@@ -59,7 +59,7 @@ function App() {
 
     return (
         <Provider store={store}>
-            <div className="flex flex-col min-h-screen bg-blue-50">
+            <div className="flex flex-col min-h-screen bg-white">
                 <Router>
                     <Header
                         setTerm={setTerm}

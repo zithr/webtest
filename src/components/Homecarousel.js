@@ -22,10 +22,8 @@ const Homecarousel = () => {
         fetchItems()
     }, [])
     return (
-        <div className="container mx-auto bg-blue-50">
-            <div className="text-4xl font-serif text-gray-800 font-bold mt-16 mb-10">
-                Top Pictures:
-            </div>
+        <div className="container mx-auto pt-10 py-5">
+            <div className="text-4xl font-serif text-gray-800 font-bold">Top Pictures:</div>
             <div>
                 {!isLoading && images.length === 0 && (
                     <h1 className="text-4xl text-center mx-auto mt-32 bg-gray-60">
@@ -37,7 +35,7 @@ const Homecarousel = () => {
                         Images loading...
                     </h1>
                 ) : (
-                    <div className="pb-16 ">
+                    <div className="pt-4 pb-4 border-b-2 border-purple-100 ">
                         <CarouselProvider
                             naturalSlideWidth={30}
                             naturalSlideHeight={20}
@@ -52,7 +50,7 @@ const Homecarousel = () => {
                                             <img
                                                 src={image.webformatURL}
                                                 alt=""
-                                                className="flex object-cover h-full justify-center"
+                                                className="flex object-cover w-full justify-center"
                                             />
                                         </div>
                                     </Slide>

@@ -37,7 +37,7 @@ const Header = ({ setTerm, setImages, checklogged, logout }) => {
     useOutsideAlerter(wrapperRef)
 
     return (
-        <nav className="sticky top-0 flex items-center justify-between bg-gray-50 p-2 shadow-md">
+        <nav className="sticky top-0 flex items-center justify-between bg-gray-50 p-2 shadow-md z-10">
             <div className="flex">
                 <div className="mr-6">
                     <Link to="/" className="self-end text-black font-bold text-2xl">
