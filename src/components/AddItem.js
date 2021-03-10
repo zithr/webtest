@@ -29,8 +29,17 @@ const AddItem = () => {
                     </div>
                     <div className="">
                         <div className="mt-3 flex">
-                            {previewFile.map((item) => (
-                                <div className="flex pr-1 w-24 h-24 justify-center">
+                            {previewFile.map((item, index) => (
+                                <div
+                                    className="flex pr-1 w-24 h-24 justify-center cursor-pointer"
+                                    // Clicking on the image removes it from 'previewFile' array
+                                    onClick={() => {
+                                        setPreviewFile([
+                                            ...previewFile.slice(0, index),
+                                            ...previewFile.slice(index + 1),
+                                        ])
+                                    }}
+                                >
                                     <img
                                         src={item}
                                         alt=""
