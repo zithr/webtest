@@ -1,7 +1,17 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import ReactTooltip from "react-tooltip"
 
 const AddItem = () => {
+    const [selectedFile, setSelectedFile] = useState()
+    const [isFilePicked, setIsFilePicked] = useState(false)
+
+    const changeHandler = (event) => {
+        setSelectedFile(event.target.files[0])
+        setIsFilePicked(true)
+    }
+
+    const handleSubmission = () => {}
     return (
         <div className="flex flex-1 justify-center bg-yellow-50">
             <div className="font-serif">
@@ -19,11 +29,22 @@ const AddItem = () => {
                     </div>
                     <div className="">
                         <ReactTooltip />
+                        <div class="mt-2 flex items-center justify-center ">
+                            <label class="border-2 border-purple-100 w-36 flex flex-col items-center p-2 bg-white text-purple-300 rounded-lg shadow-md cursor-pointer hover:bg-blue hover:text-purple-500 hover:border-purple-300">
+                                <svg
+                                    class="w-6 h-6"
+                                    fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                </svg>
+                                <span class="mt-2 text-base leading-normal">Upload Images</span>
+                                <input type="file" class="hidden" />
+                            </label>
+                        </div>
 
-                        <button className="text-lg rounded-lg shadow-md my-2 p-2 bg-purple-300 text-gray-100 hover:bg-purple-500">
-                            Upload image(s)
-                        </button>
-                        <form action="" className="py-2 grid grid-cols-3 gap-3">
+                        <form action="" className="mt-2 py-2 grid grid-cols-3 gap-3">
                             <label className="">Name</label>
                             <input
                                 className="focus:outline-none border-2 focus:border-purple-500 px-1"
@@ -55,7 +76,40 @@ const AddItem = () => {
                                     stroke-linejoin="round"
                                 />
                             </svg>
-
+                            <label>Category</label>
+                            <select>
+                                <option value="Books">Books</option>
+                                <option selected value="Clothes">
+                                    Clothes
+                                </option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Jewellery">Jewellery</option>
+                                <option value="Toys">Toys</option>
+                            </select>
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="stroke-current text-purple-600 stroke-1"
+                                data-tip="Type of item"
+                            >
+                                <path
+                                    d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z"
+                                    stroke-miterlimit="10"
+                                />
+                                <path
+                                    d="M11 16H21"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M16 11V21"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
                             <label>Tags</label>
                             <input
                                 className="focus:outline-none border-2 focus:border-purple-500 px-1"
