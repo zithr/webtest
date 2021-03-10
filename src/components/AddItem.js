@@ -3,12 +3,11 @@ import { Link } from "react-router-dom"
 import ReactTooltip from "react-tooltip"
 
 const AddItem = () => {
-    const [selectedFile, setSelectedFile] = useState()
-    const [isFilePicked, setIsFilePicked] = useState(false)
+    const [previewFile, setPreviewFile] = useState([])
 
     const changeHandler = (event) => {
-        setSelectedFile(event.target.files[0])
-        setIsFilePicked(true)
+        setPreviewFile([...previewFile, URL.createObjectURL(event.target.files[0])])
+        console.log(previewFile)
     }
 
     const handleSubmission = () => {}
@@ -28,6 +27,17 @@ const AddItem = () => {
                         </div>
                     </div>
                     <div className="">
+                        <div className="mt-3 flex">
+                            {previewFile.map((item) => (
+                                <div className="flex pr-1 w-24 h-24 justify-center">
+                                    <img
+                                        src={item}
+                                        alt=""
+                                        className="flex object-cover w-full justify-center"
+                                    />
+                                </div>
+                            ))}
+                        </div>
                         <ReactTooltip />
                         <div class="mt-2 flex items-center justify-center ">
                             <label class="border-2 border-purple-100 w-36 flex flex-col items-center p-2 bg-white text-purple-300 rounded-lg shadow-md cursor-pointer hover:bg-blue hover:text-purple-500 hover:border-purple-300">
@@ -40,7 +50,7 @@ const AddItem = () => {
                                     <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                                 </svg>
                                 <span class="mt-2 text-base leading-normal">Upload Images</span>
-                                <input type="file" class="hidden" />
+                                <input type="file" class="hidden" onChange={changeHandler} />
                             </label>
                         </div>
 
