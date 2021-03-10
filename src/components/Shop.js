@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 import ReactTooltip from "react-tooltip"
 import Popup from "reactjs-popup"
 import "reactjs-popup/dist/index.css"
-import svgCog from "./svg/svgCog"
-import svgPencil from "./svg/svgPencil"
 
 const Shop = () => {
     let shopItems = []
