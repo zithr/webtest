@@ -6,11 +6,31 @@ const CreateAccount = () => {
     const [emailid, setEmailId] = useState("")
     const [password, setPassword] = useState("")
     const [accountInfo, setAccountInfo] = useState([])
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
         setAccountInfo([firstName, secondName, emailid, password])
         // validate data, success/fail box
+
+        // Request to create account
+        let requestOptions = {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify({
+                username: firstName,
+                email: emailid,
+                full_name: `${firstName} ${secondName}`,
+                hashed_password: password,
+            }),
+        }
+        console.log("Creating account", firstName, secondName, emailid, password, accountInfo)
+        let response = await fetch("https://api.testbro.tk/users/add", requestOptions)
+        console.log(response)
+        console.log(response.status)
+        if (response.ok) {
+            let data = await response.json()
+            console.log(data)
+        }
     }
 
     return (
