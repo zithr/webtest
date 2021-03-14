@@ -26,9 +26,11 @@ export const fetchUsers = () => {
     return (dispatch) => {
         dispatch(fetchUsersRequest)
         axios
-            .get("https://jsonplaceholder.typicode.com/users")
+            // .get("https://jsonplaceholder.typicode.com/users")
+            .get("https://api.testbro.tk/admin/users")
             .then((response) => {
                 const users = response.data
+                console.log(users)
                 dispatch(fetchUsersSuccess(users))
             })
             .catch((error) => {

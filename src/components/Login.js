@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
+import axios from "axios"
 
-const Login = ({ auth }) => {
+const Login = ({ auth, uname }) => {
     const [loginStage, setLoginStage] = useState(0)
     const [emailInput, setEmailInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
@@ -9,7 +10,7 @@ const Login = ({ auth }) => {
 
     let emailCheck = async (e) => {
         e.preventDefault()
-        if (emailInput === "test") {
+        if (emailInput === "test" || emailInput === "admin1") {
             setLoginStage(1)
         } else {
             setLoginStage(-1)
@@ -18,13 +19,43 @@ const Login = ({ auth }) => {
 
     let passwordCheck = async (e) => {
         e.preventDefault()
-        if (passwordInput === "test") {
-            setLoginStage(0) // reset login form to start, find better way to manage login stages/resets
-            auth(true)
-            history.push("/")
-        } else {
-            setLoginStage(-2)
-        }
+        var bodyFormData = new FormData()
+        bodyFormData.append("username", emailInput)
+        bodyFormData.append("password", passwordInput)
+        console.log("axios post")
+        axios({
+            method: "post",
+            url: "https://api.testbro.tk/token",
+            data: bodyFormData,
+            // headers: { "Content-Type": "multipart/form-data" },
+        })
+            .then(function (response) {
+                console.log("axios login success")
+                //handle success
+
+                const access_token = response.data.access_token
+                axios.defaults.headers.common["Authorization"] = `Bearer ${access_token}`
+
+                setLoginStage(0) // reset login form to start, find better way to manage login stages/resets
+                auth(true)
+                uname(emailInput)
+                console.log(`auth ${emailInput}`)
+                history.push("/")
+            })
+            .catch(function (response) {
+                console.log("axios error")
+                //handle error
+                console.log(response)
+                setLoginStage(-2)
+            })
+
+        // if (passwordInput === "test") {
+        //     setLoginStage(0) // reset login form to start, find better way to manage login stages/resets
+        //     auth(true)
+        //     history.push("/")
+        // } else {
+        //     setLoginStage(-2)
+        // }
     }
 
     return (

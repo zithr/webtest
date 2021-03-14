@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import ImageSearch from "./ImageSearch"
 
-const Header = ({ setTerm, setImages, checklogged, logout }) => {
+const Header = ({ setTerm, setImages, checklogged, logout, username }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     if (checklogged & !isLoggedIn) {
         setIsLoggedIn(true)
@@ -59,6 +59,14 @@ const Header = ({ setTerm, setImages, checklogged, logout }) => {
                         Your Shop
                     </Link>
                 )}
+                {username === "admin1" && (
+                    <Link
+                        to="/users"
+                        className="self-end text-gray-700 font-semibold text-md hover:text-gray-900 mr-4"
+                    >
+                        Users
+                    </Link>
+                )}
                 <Link
                     to="/search"
                     className="self-end text-gray-700 font-semibold text-md hover:text-gray-900 mr-4"
@@ -78,7 +86,7 @@ const Header = ({ setTerm, setImages, checklogged, logout }) => {
                             }}
                         >
                             <div className="text-gray-700 font-semibold text-md rounded-lg px-1 pt-2 underline focus:outline-none hover:bg-gray-100">
-                                Hello team
+                                Hello {username}
                             </div>
                             <img
                                 className="h-10 w-10 ml-2 object-cover rounded-full border-2 border-gray-600 hover:border-gray-400"

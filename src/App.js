@@ -27,6 +27,7 @@ function App() {
     const [isLoading, setIsLoading] = useState(true)
     const [term, setTerm] = useState("")
     const [logged, setLogged] = useState(false)
+    const [username, setUsername] = useState("")
     const atBottom = () => {
         setPage(page + 1)
     }
@@ -65,6 +66,7 @@ function App() {
                         setTerm={setTerm}
                         setImages={setImages}
                         checklogged={logged}
+                        username={username}
                         logout={() => setLogged(false)}
                     />
 
@@ -80,7 +82,7 @@ function App() {
                     <Route path="/" exact component={Homecarousel} />
                     <Route path="/about" component={About} />
                     <Route path="/login">
-                        <Login auth={(x) => setLogged(x)} />
+                        <Login auth={(x) => setLogged(x)} uname={(y) => setUsername(y)} />
                     </Route>
                     <Route path="/create" component={CreateAccount} />
                     <Route path="/account" component={YourAccount} />
