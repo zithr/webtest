@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 
 const CreateAccount = () => {
     const [accountCreated, setAccountCreated] = useState(false)
@@ -14,20 +15,33 @@ const CreateAccount = () => {
         // validate data, success/fail box
 
         // Request to create account
+        let headerData = new Headers()
+        // headerData.append("Accept", "*")
+        // headerData.append("Access-Control-Allow", "*")
+        // headerData.append("Content-Type", "application/json")
+        // headerData.append("Access-Control-Allow-Origin", "*")
+        // headerData.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
+        // headerData.append("Access-Control-Allow-Headers", "*")
         let requestOptions = {
             method: "POST",
-            mode: "no-cors",
+            mode: "cors",
             body: JSON.stringify({
                 username: firstName,
                 email: emailid,
                 full_name: `${firstName} ${secondName}`,
                 hashed_password: password,
             }),
+            // headers: {
+            //     Accept: "application/json",
+            //     "Content-Type": "application/json",
+            // },
+            // credentials: "include",
         }
         console.log("Creating account", firstName, secondName, emailid, password, accountInfo)
         let response = await fetch("https://api.testbro.tk/users/add", requestOptions)
-        console.log(response)
-
+        // let response = await fetch("http://localhost:5000/users/add", requestOptions)
+        console.log("res:", response)
+        console.log("hello???")
         if (response.ok) {
             let data = await response.json()
             console.log(data)
