@@ -19,7 +19,7 @@ const Login = ({ auth, uname }) => {
 
     let passwordCheck = async (e) => {
         e.preventDefault()
-        var bodyFormData = new FormData()
+        let bodyFormData = new FormData()
         bodyFormData.append("username", emailInput)
         bodyFormData.append("password", passwordInput)
         console.log("axios post")
