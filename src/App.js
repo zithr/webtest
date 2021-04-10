@@ -17,6 +17,7 @@ import Messages from "./components/Messages"
 import AddItem from "./components/AddItem"
 import Homecarousel from "./components/Homecarousel"
 import UserTest from "./components/UserTest"
+import ChangePassword from "./components/ChangePassword"
 import users from "./db.json"
 import { HashRouter as Router, Route } from "react-router-dom"
 import store from "./redux/store"
@@ -93,6 +94,7 @@ function App() {
                     <Route path="/messages" component={Messages} />
                     <Route path="/add" component={AddItem} />
                     <Route path="/users" component={UserTest} />
+                    <Route path="/changepassword" component={ChangePassword} />
                     <Footer />
                 </Router>
                 <BottomScrollListener onBottom={atBottom} />
