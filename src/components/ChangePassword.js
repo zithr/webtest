@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link, useHistory } from "react-router-dom"
 import axios from "axios"
 
 const ChangePassword = () => {
@@ -6,33 +7,59 @@ const ChangePassword = () => {
     const [newPassword, setNewPassword] = useState("")
     const [verifyPassword, setVerifyPassword] = useState("")
     const [fieldErrors, setFieldErrors] = useState({
-        oldPassword: false,
+        oldPasswordEmpty: false,
+        oldPasswordNotMatch: false,
         newPassword: false,
         verifyPassword: false,
     })
+    const history = useHistory()
 
     const checkFields = () => {
         setFieldErrors({
             ...fieldErrors,
-            oldPassword: "" === oldPassword,
-            verifyPassword: newPassword === verifyPassword,
+            oldPasswordEmpty: "" === oldPassword,
+            oldPasswordNotMatch: false,
+            verifyPassword: newPassword !== verifyPassword,
         })
-        console.log(newPassword, verifyPassword)
-
-        // if (newPassword === verifyPassword) {
-        //     setFieldErrors({ ...fieldErrors, verifyPassword: false })
-        // } else {
-        //     setFieldErrors({ ...fieldErrors, verifyPassword: true })
-        // }
-    }
-
-    const onSubmit = async (e) => {
-        e.preventDefault()
+        if (
+            !fieldErrors.newPassword &&
+            !fieldErrors.oldPasswordEmpty &&
+            !fieldErrors.oldPasswordNotMatch &&
+            !fieldErrors.verifyPassword
+        ) {
+            return true
+        }
+        return false
     }
 
     const handleSubmission = async (e) => {
         e.preventDefault()
-        checkFields()
+
+        if (!checkFields()) {
+            console.log(fieldErrors)
+            return
+        }
+
+        axios({
+            method: "post",
+            url: "https://api.testbro.tk/users/me/changepassword",
+            data: JSON.stringify({ oldPassword: oldPassword, newPassword: newPassword }),
+        })
+            .then(function (response) {
+                alert("Password has been changed")
+                history.push("/")
+            })
+            .catch(function (error) {
+                console.log("change pw error")
+                console.log(error)
+                console.log(error.response)
+                if (error.response.data.detail === "Incorrect old password") {
+                    setFieldErrors({ ...fieldErrors, oldPasswordNotMatch: true })
+                }
+                if (error.response.data.detail === "Not authenticated") {
+                    alert("You must be logged in to change your password")
+                }
+            })
     }
     return (
         <div className="bg-indigo-200 min-h-screen">
@@ -45,7 +72,7 @@ const ChangePassword = () => {
                     names. Combine uppercase and lowercase letters, numbers and symbols.
                 </div>
                 <div className="flex">
-                    <form onSubmit={onSubmit} className="" action="/" method="post">
+                    <form className="" action="/" method="post">
                         <div className="flex flex-col">
                             <label
                                 className="mt-6 font-bold text-md text-grey-darkest"
@@ -63,7 +90,7 @@ const ChangePassword = () => {
                                 placeholder="Old Password"
                                 onChange={(e) => setOldPassword(e.target.value)}
                             />
-                            {fieldErrors.oldPassword && (
+                            {fieldErrors.oldPasswordNotMatch && (
                                 <span className="text-xs text-red-400">Password is incorrect</span>
                             )}
                             <label
